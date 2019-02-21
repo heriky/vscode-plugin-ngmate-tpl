@@ -1,0 +1,49 @@
+{
+    "name": "ng-mate-tpl",
+    "displayName": "ng-mate-tpl",
+    "description": "ng模板代码生成器",
+    "version": "0.0.1",
+    "publisher": "heriky",
+    "engines": {
+        "vscode": "^1.31.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.ngRouteGenerator",
+        "onCommand:extension.ngCompoGenerator"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.ngRouteGenerator",
+            "title": "新建路由模板"
+        }, {
+            "command": "extension.ngCompoGenerator",
+            "title": "新建组件模板"
+        }],
+        "menus": {
+            "explorer/context": [{
+                "when": "explorerViewletVisible",
+                "command": "extension.ngRouteGenerator",
+                "group": "navigation@0"
+            }, {
+                "when": "explorerViewletVisible",
+                "command": "extension.ngCompoGenerator",
+                "group": "navigation@1"
+            }]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    }
+}
